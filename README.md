@@ -1,1 +1,9 @@
-Simple but perfect Email_Confirmation, it's a great gift for your project, you can find more projects you need on my page, just one condition don't forget to subscribe, Thank you for your Attention.
+# Simple but Perfect Email Confirmation
+
+🎁 A great gift for your project! 🚀
+
+Explore more projects on my [GitHub page](https://github.com/mirzokiroff).
+
+Just one condition: Don't forget to subscribe! 🌟
+
+Thank you for your attention.
