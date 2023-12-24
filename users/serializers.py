@@ -1,14 +1,17 @@
 from rest_framework.exceptions import ValidationError
 from rest_framework.fields import CharField
-from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import ModelSerializer, Serializer
 
 from users.models import UserProfile
 
 
 class UserProfileRetrieveSerializer(ModelSerializer):
+    username = CharField(required=False)
+
     class Meta:
         model = UserProfile
-        exclude = ['is_superuser', 'is_staff', 'groups', 'user_permissions', 'is_active', 'date_joined']
+        exclude = ['is_superuser', 'is_staff', 'groups', 'user_permissions', 'is_active', 'date_joined', 'password',
+                   'confirm_password', 'email']
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
@@ -29,4 +32,15 @@ class RegisterSerializer(ModelSerializer):
         return data
 
     class Meta:
+        model = UserProfile
         fields = ['username', 'email', 'password', 'confirm_password']
+
+
+class EmailVerySerializer(Serializer):
+    code = CharField(max_length=5)
+
+
+class LoginSerializer(ModelSerializer):
+    class Meta:
+        model = UserProfile
+        fields = ['username', 'password', 'confirm_password']
